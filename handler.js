@@ -1,8 +1,10 @@
 'use strict';
 const AWS = require('aws-sdk');
+
 module.exports={
   create: async(event,context)=>{
     let bodyObj = {}
+    console.log(event.body)
     try{
       bodyObj = JSON.parse(event.body)
     }catch(jsonError){
@@ -11,7 +13,7 @@ module.exports={
         statusCode: 400
       }
     }
-
+    console.log(bodyObj)
     if(typeof bodyObj.name === 'undefined' || typeof bodyObj.age ==='undefined'){
       console.log('Missing parameters');
       return {
@@ -31,7 +33,7 @@ module.exports={
       let dynamodb = new AWS.DynamoDB.DocumentClient()
       putResult = await dynamodb.put(putParams).promise()
     }catch(putError){
-      console.log("There was en error putting the kitten");
+      console.log("There was en error putting the kitten",putError);
       console.log("putParams ",putParams);
       return {
         statusCode: 500
