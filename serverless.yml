@@ -49,7 +49,7 @@ functions:
           path: kitten/{name}
           method: put
   delete:
-    handler: handler.update
+    handler: handler.delete
     events:
       - http:
           path: kitten/{name}

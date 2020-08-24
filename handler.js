@@ -3,6 +3,7 @@ const AWS = require('aws-sdk');
 
 module.exports={
   create: async(event,context)=>{
+    
     let bodyObj = {}
     console.log(event.body)
     try{
@@ -32,9 +33,11 @@ module.exports={
     try {
       let dynamodb = new AWS.DynamoDB.DocumentClient()
       putResult = await dynamodb.put(putParams).promise()
+      console.log(putResult);
     }catch(putError){
-      console.log("There was en error putting the kitten",putError);
+      console.log("There was en error putting the kitten ",putError);
       console.log("putParams ",putParams);
+      console.log(process.env.DYNAMODB_KITTEN_TABLE);
       return {
         statusCode: 500
       }
@@ -75,13 +78,14 @@ module.exports={
     let getParams = {
       TableName: process.env.DYNAMODB_KITTEN_TABLE,
       Key:{
-        name:event.pathParameters.name
+        name: event.pathParameters.name
       }
     }
     let getResult={}
     try{
       let dynamodb = new AWS.DynamoDB.DocumentClient();
-      dynamodb.get(getParams).promise()
+      getResult = await dynamodb.get(getParams).promise();
+      console.log(getParams)
     }catch(getError){
       console.log("There was an error getting the kitten");
       console.log("getError",getError);
@@ -89,15 +93,17 @@ module.exports={
         statusCode:500
       }
     }
-    if(getResult.Item= null){
+    console.log(getResult);
+    if(getResult.Item=== null){
       return{
         statusCode:404
       }
     }
+    console.log(getResult);
     return{
       statusCode:200,
       body: JSON.stringify({
-        name:getResult.Item.name,
+        name: getResult.Item.name,
         age: getResult.Item.age
       })
     }
@@ -124,18 +130,18 @@ module.exports={
       Key: {
         name: event.pathParameters.name,
       },
-      UpdateExpression: 'set #age = : age',
-      ExpressionAttributeName: {
-        '#age': 'age'
+      UpdateExpression: 'set #age = :age',
+      ExpressionAttributeNames: {
+        '#age':'age'
       },
-      ExpressionAttributeValue:{
+      ExpressionAttributeValues:{
         ':age': bodyObj.age
       }
     };
-    let updateResult = {};
     try {
       let dynamodb = new AWS.DynamoDB.DocumentClient();
-      dynamodb.update(getParams).promise();
+      await dynamodb.update(updateParams).promise();
+      console.log(updateParams);
     } catch (updateError) {
       console.log("There was an error updating the kitten");
       console.log("getError", updateError);
@@ -157,7 +163,7 @@ module.exports={
     let deleteResult = {};
     try {
       let dynamodb = new AWS.DynamoDB.DocumentClient();
-      dynamodb.delete(getParams).promise();
+      deleteResult = await dynamodb.delete(deleteParams).promise();
     } catch (deleteError) {
       console.log("There was an error deleting the kitten");
       console.log("getError", deleteError);

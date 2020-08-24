@@ -1,10 +1,7 @@
-  POST - https://i7c2zv8g30.execute-api.us-east-1.amazonaws.com/dev/kitten
-
-  GET - https://i7c2zv8g30.execute-api.us-east-1.amazonaws.com/dev/kitten
-
-  GET - https://i7c2zv8g30.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
-
-  PUT - https://i7c2zv8g30.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
-
-  DELETE - https://i7c2zv8g30.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
-  
+endpoints:
+  POST - https://ltflpykd0f.execute-api.us-east-1.amazonaws.com/dev/kitten
+  GET - https://ltflpykd0f.execute-api.us-east-1.amazonaws.com/dev/kitten
+  GET - https://ltflpykd0f.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
+  PUT - https://ltflpykd0f.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
+  DELETE - https://ltflpykd0f.execute-api.us-east-1.amazonaws.com/dev/kitten/{name}
+functions:
