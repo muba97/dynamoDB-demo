@@ -4,15 +4,33 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-amplify": "^3.0.24",
     "aws-sdk": "^2.736.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "serverless-pseudo-parameters": "^2.5.0"
   },
   "devDependencies": {
+    "react-scripts": "^3.4.3",
     "serverless-offline": "^6.5.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-thekittenscrud-dev-131940-authRole",
+            "UnauthRoleArn": "arn:aws:iam::377423542717:role/amplify-thekittenscrud-dev-131940-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::377423542717:role/amplify-thekittenscrud-dev-131940-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-thekittenscrud-dev-131940-deployment",
+            "UnauthRoleName": "amplify-thekittenscrud-dev-131940-unauthRole",
+            "StackName": "amplify-thekittenscrud-dev-131940",
+            "StackId": "arn:aws:cloudformation:eu-west-1:377423542717:stack/amplify-thekittenscrud-dev-131940/7a7157f0-e6bc-11ea-bdc7-0ae6572120e6",
+            "AmplifyAppId": "dqnyqiu51zmqg"
+        },
+        "categories": {
+            "auth": {
+                "thekittenscrudc0a88a53": {}
+            }
+        }
+    }
+}

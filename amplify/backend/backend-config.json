@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"thekittenscrudc0a88a53": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
